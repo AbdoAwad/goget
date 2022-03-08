@@ -1,0 +1,38 @@
+<br>
+<%= form_with(model: job) do |form| %>
+  <% if job.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+        <% job.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+  <div class="col">
+    <%= form.label :pickup_street, style: "display: block", class:"form-label" %>
+    <%= form.text_field :pickup_street, class: "form-control"%>
+    <%= form.label :pickup_city, style: "display: block", class:"form-label" %>
+    <%= form.text_field :pickup_city, class: "form-control"%>
+    <%= form.label :pickup_postcode, style: "display: block", class:"form-label" %>
+    <%= form.text_field :pickup_postcode, class: "form-control"%>
+    <%= form.label :pickup_state, style: "display: block", class:"form-label" %>
+    <%= form.text_field :pickup_state, class: "form-control"%>
+  </div>
+  <div class="col">
+    <%= form.label :drop_off_street, style: "display: block", class:"form-label" %>
+    <%= form.text_field :drop_off_street, class: "form-control"%>
+    <%= form.label :drop_off_city, style: "display: block", class:"form-label" %>
+    <%= form.text_field :drop_off_city, class: "form-control"%>
+    <%= form.label :drop_off_postcode, style: "display: block", class:"form-label" %>
+    <%= form.text_field :drop_off_postcode, class: "form-control"%>
+    <%= form.label :drop_off_state, style: "display: block", class:"form-label" %>
+    <%= form.text_field :drop_off_state, class: "form-control"%>
+  </div>
+</div>
+<br>
+  <%= form.submit class: "btn btn-primary"%>
+<% end %>

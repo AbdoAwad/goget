@@ -1,0 +1,26 @@
+<h1>My Jobs</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Poster</th>
+      <th scope="col">Pickup Address</th>
+      <th scope="col">Drop off Address</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+<div id="jobs" >
+  <% @myjobs.each do |job| %>
+    <tr>
+      <td>Awad</td>
+      <td><%=[job.pickup_street, job.pickup_city, job.pickup_postcode, job.pickup_city].compact.join(", ") %></td>
+      <td><%=[job.drop_off_street, job.drop_off_city, job.drop_off_postcode, job.drop_off_city].compact.join(", ") %></td>
+      <td>
+        <%= link_to content_tag(:li, fa_icon('show', class: 'fa-solid fa-eye')), job , role: "button" %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+  <%= link_to "New job", new_job_path , class: "btn btn-primary", role: "button"  %>
+</div>

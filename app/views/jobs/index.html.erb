@@ -1,0 +1,35 @@
+<h1>Jobs</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Poster</th>
+      <th scope="col">Pickup Address</th>
+      <th scope="col">Drop off Address</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+<div id="jobs" >
+  <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.user.name %></td>
+        <td><%=[job.pickup_street, job.pickup_city, job.pickup_postcode, job.pickup_city].compact.join(", ") %></td>
+        <td><%=[job.drop_off_street, job.drop_off_city, job.drop_off_postcode, job.drop_off_city].compact.join(", ") %></td>
+        <%if job.status == 1%>
+          <td><span class="badge bg-primary">Available</span></td>
+        <%elsif job.status == 2%>
+          <td><span class="badge bg-warning text-dark">In Progress</span></td>
+        <%else%>
+          <td><span class="badge bg-success">Completed</span></td>
+        <%end%>
+        <td>
+          <%= link_to content_tag(:li, fa_icon('show', class: 'fa-solid fa-eye')), job , role: "button" %>      
+        </td>
+      </tr>
+
+  <% end %>
+  </tbody>
+</table>
+</div>
+

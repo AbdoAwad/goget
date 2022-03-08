@@ -1,0 +1,8 @@
+
+<tr>
+  <td>Awad</td>
+  <td><%=[job.pickup_street, job.pickup_city, job.pickup_postcode, job.pickup_city].compact.join(", ") %></td>
+  <td><%=[job.drop_off_street, job.drop_off_city, job.drop_off_postcode, job.drop_off_city].compact.join(", ") %></td>
+  <td><%= link_to "Show this job", job , class: "btn btn-primary", role: "button" %></td>
+</tr>
+

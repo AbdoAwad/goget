@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pickup_street: MyString
+  pickup_city: MyString
+  pickup_state: MyString
+  pickop_postcode: 1
+  drop_off_street: MyString
+  drop_off_city: MyString
+  drop_off_state: MyString
+  drop_off_postcode: 1
+  pickup_latitude: 9.99
+  pickup_longitude: 9.99
+  pickup_latitude: MyString
+
+two:
+  pickup_street: MyString
+  pickup_city: MyString
+  pickup_state: MyString
+  pickop_postcode: 1
+  drop_off_street: MyString
+  drop_off_city: MyString
+  drop_off_state: MyString
+  drop_off_postcode: 1
+  pickup_latitude: 9.99
+  pickup_longitude: 9.99
+  pickup_latitude: MyString

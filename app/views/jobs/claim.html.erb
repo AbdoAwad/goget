@@ -1,0 +1,31 @@
+<br>
+<div class="card" style="width: 50rem;">
+  <div class="card-body">
+    <h1 class="display-4"> Job Provider : <%= @job.user.name %></h1>
+    <p class="lead"> Pickup Address : 
+      <%= [@job.pickup_street, @job.pickup_city, @job.pickup_postcode, @job.pickup_city].compact.join(", ") %> 
+    </p>
+    <p class="lead"> Drop Off Address : 
+      <%=[@job.drop_off_street, @job.drop_off_city, @job.drop_off_postcode, @job.drop_off_city].compact.join(", ") %>
+    </p>
+    <br/>
+    
+        <%= form_with(model: @job) do |form| %>
+    <div class="row">
+        <%= form.label :gogeter_id, "Your GoGeter ID", class:"col-sm-4 col-form-label" %>
+        <div class="col-sm-8">
+            <%= form.number_field :gogeter_id, class: "form-control-plaintext", value: current_user.id %>
+        </div>
+        </div>
+        <br>
+    <% if @job.user.id != current_user.id && @job.status == 1%>
+        <%= form.submit "Claim", class: "btn btn-primary"%>
+    <%  elsif @job.user.id != current_user.id && @job.status == 2 %>
+        <%= form.submit "Mark as Complete", class: "btn btn-primary"%>
+    <% end %>
+    <%= link_to 'Back', jobs_path, class:"btn btn-dark" %>
+    <% end %>
+
+  </div>
+</div>
+
